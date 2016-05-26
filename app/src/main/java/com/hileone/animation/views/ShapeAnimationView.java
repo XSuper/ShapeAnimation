@@ -256,10 +256,9 @@ public class ShapeAnimationView extends SurfaceView {
             float dx = model.getDestPoint().mX - mCentX;
             float dy = model.getDestPoint().mY - mCentY;
 
-            final float half = 180;
-            float degrees = (float) (Math.atan2(dy, dx) * half / Math.PI);
-            model.setDeltaX((float) (mDPS * Math.cos(degrees * Math.PI / half)));
-            model.setDeltaY((float) (mDPS * Math.sin(degrees * Math.PI / half)));
+            float degrees = (float) Math.atan2(dy, dx);
+            model.setDeltaX((float) (mDPS * Math.cos(degrees)));
+            model.setDeltaY((float) (mDPS * Math.sin(degrees)));
         }
     }
 
