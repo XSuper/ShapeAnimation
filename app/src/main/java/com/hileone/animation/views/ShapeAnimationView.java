@@ -268,11 +268,9 @@ public class ShapeAnimationView extends SurfaceView {
     private void startDrawThread() {
         if (mDrawThread != null) {
             if (mState.get() == STATE_INIT) {
-                mState.set(STATE_DRAWING);
                 mDrawThread.start();
-            } else {
-                mState.set(STATE_DRAWING);
             }
+            mState.set(STATE_DRAWING);
         }
     }
 
