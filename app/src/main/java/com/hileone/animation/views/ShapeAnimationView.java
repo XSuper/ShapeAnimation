@@ -138,7 +138,6 @@ public class ShapeAnimationView extends SurfaceView {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         mCurWidth = getMeasuredWidth();
         mScreenRatio = mCurWidth * 1.0f / mWidthPixels;
-        mBitmapScale = mScreenRatio;
         mBitmapScale = (getResources().getDisplayMetrics().density / 2.0f) * mScreenRatio;
     }
 
@@ -149,7 +148,11 @@ public class ShapeAnimationView extends SurfaceView {
 
     @Override
     public void setVisibility(int visibility) {
-        stopDisplay();
+        if (visibility == GONE) {
+            stopDisplay();
+        } else {
+            resumeDisplay();
+        }
         super.setVisibility(visibility);
     }
 
